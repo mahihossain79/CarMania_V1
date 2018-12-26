@@ -1,6 +1,7 @@
 package com.example.asus.carmania_v1;
 
 import android.content.Intent;
+import android.graphics.Movie;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asus.carmania_v1.modelClass.Custom_adapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -24,15 +26,18 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class buy extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
-    private RecyclerView mAdList;
+    //private RecyclerView mAdList;
     //private ArrayList<String> mAds = new ArrayList<>();
    // private ArrayList<String> mKeys = new ArrayList<>();
 
-
+    private List<Ads> mAdList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private Custom_adapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +46,14 @@ public class buy extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Ad");
         mDatabase.keepSynced(true);
-        mAdList = (RecyclerView) findViewById(R.id.adList);
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,mAds);
-        mAdList.setHasFixedSize(true);
-        mAdList.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new Custom_adapter(mAdList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(mAdapter);
 
     }
 
-    @Override
+   /* @Override
     protected void onStart() {
         super.onStart();
         FirebaseRecyclerAdapter<Ads,AdsViewHolder> firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<Ads,AdsViewHolder>
@@ -107,7 +112,7 @@ public class buy extends AppCompatActivity {
             mPrice.setText(price);
         }
     }
-
+*/
     //mDatabase.addChildEventListener(new ChildEventListener() {
 
     //@Override
