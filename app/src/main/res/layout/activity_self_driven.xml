@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".selfDriven"
+    android:padding="20dp"
+    >
+
+    <TextView
+        android:id="@+id/infotext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text= "To Drive a car on your own,
+You have to provide the following Information"
+        android:textColor="#1a237e"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toBottomOf="@+id/infotext"
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/firstName"
+        android:hint="Last Name" />
+
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lastName"
+        android:hint="Phone Number" />
+
+    <EditText
+        android:id="@+id/selfdriveEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumber"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/selfdriveEmail"
+        android:hint="Address"
+        />
+
+    <EditText
+        android:id="@+id/nid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        android:hint="NID" />
+
+    <ImageView
+        android:id="@+id/nidImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/nid"
+        />
+
+    <Button
+        android:id="@+id/selectNidImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload NID Image"
+        android:layout_marginLeft="85dp"
+        app:layout_constraintLeft_toRightOf="@+id/nidImage"
+        app:layout_constraintTop_toBottomOf="@+id/nid"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/drivingLicense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintTop_toBottomOf="@id/nidImage"
+        android:hint="Driving License Number" />
+
+
+    <ImageView
+        android:id="@+id/dLImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintTop_toBottomOf="@+id/drivingLicense"
+        />
+
+    <Button
+        android:id="@+id/selectDLImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Driving License"
+        android:layout_marginLeft="85dp"
+        app:layout_constraintLeft_toRightOf="@+id/dLImage"
+        app:layout_constraintTop_toBottomOf="@+id/drivingLicense"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        />
+    <EditText
+        android:id="@+id/tin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintTop_toBottomOf="@id/dLImage"
+        android:hint="TIN Number"
+        />
+
+    <Button
+        android:id="@+id/selfsubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#1a237e"
+        android:textColor="#ffff"
+        android:textSize="20dp"
+        android:text="Submit"
+        android:onClick="Submit"/>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "249324716100",
+    "firebase_url": "https://carmania-d8164.firebaseio.com",
+    "project_id": "carmania-d8164",
+    "storage_bucket": "carmania-d8164.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249324716100:android:6c765dc26adadbfc",
+        "android_client_info": {
+          "package_name": "com.example.asus.carmania_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249324716100-4s1i9r42crcvaquvq22af4n2ta3ldmj4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.carmania_v1",
+            "certificate_hash": "50455656866b59710f764b14968f213330747ce2"
+          }
+        },
+        {
+          "client_id": "249324716100-ns5cefqlfj5b8nhn6p3krgolahruqcl5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKq-RpGZVNzfHWIBuRvkgCMZPz07wzcEo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249324716100-ns5cefqlfj5b8nhn6p3krgolahruqcl5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

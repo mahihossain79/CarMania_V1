@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Self_Driven_Rent"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/textrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Renting Details"
+        android:textSize="35dp"
+        android:gravity="center"
+        android:textColor="#1a237e"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        />
+
+
+    <EditText
+        android:id="@+id/rentDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textrent"
+        android:layout_marginTop="10dp"
+        android:hint="Rent Date (DD/MM/YYYY)"
+        android:inputType="date"/>
+
+    <EditText
+        android:id="@+id/duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rentDate"
+        android:layout_marginTop="10dp"
+        android:hint="Number of Days"
+        android:inputType="date"/>
+
+    <Spinner
+        android:id="@+id/rentCarType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/duration"
+        />
+
+
+
+
+    <EditText
+        android:id="@+id/seatCapacity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rentCarType"
+        android:hint="Seat Capacity"
+        android:inputType="number"
+        />
+
+    <EditText
+        android:id="@+id/contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/seatCapacity"
+        android:hint="Contact Number"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/selfRenSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1a237e"
+        android:textColor="#ffff"
+        android:textSize="20dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="Submit"/>
+
+
+</android.support.constraint.ConstraintLayout>
