@@ -10,67 +10,56 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#dfe6e9">
-       <ImageView
-            android:id="@+id/post_image"
+
+        <ImageView
+            android:id="@+id/post_image_rent"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"/>
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+
+
         <TextView
-            android:id="@+id/carNameshow"
+            android:id="@+id/carNameRent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Car Name"
-            android:textSize="20dp"
+            android:background="#85929E"
+            android:textSize="25dp"
             android:textAlignment="center"
-            android:textColor="@color/black_overlay"/>
+            android:textColor="#FFFF"/>
 
         <TextView
-            android:id="@+id/cartypeshow"
+            android:id="@+id/cartypeRent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="15dp"
             android:text="Car Type"
             android:textColor="@color/black_overlay"/>
-        <TextView
-            android:id="@+id/colorshow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Color"
-            android:textColor="@color/black_overlay"/>
-        <TextView
-            android:id="@+id/engineCapacityshow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Engine Capacity"
-            android:textColor="@color/black_overlay"/>
-        <TextView
-            android:id="@+id/modelshow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Model"
-            android:textColor="@color/black_overlay"/>
-        <TextView
-            android:id="@+id/seatCapacityshow"
+  <TextView
+            android:id="@+id/seatCapacityRent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seat Capacity"
+            android:textSize="15dp"
             android:textColor="@color/black_overlay"/>
         <TextView
-        android:id="@+id/priceshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Price"
-        android:textColor="@color/black_overlay"/>
-        <TextView
-            android:id="@+id/phoneshow"
+            android:id="@+id/locationRent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contact"
+            android:text="Location"
+            android:textSize="15dp"
             android:textColor="@color/black_overlay"/>
-
+        <TextView
+            android:id="@+id/phoneRent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textColor="@color/black_overlay"/>
     </LinearLayout>
+
 
 
 </android.support.v7.widget.CardView>

@@ -23,6 +23,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,11 +33,12 @@ import java.util.List;
 public class buy extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
+
     //private RecyclerView mAdList;
     //private ArrayList<String> mAds = new ArrayList<>();
    // private ArrayList<String> mKeys = new ArrayList<>();
 
-    private List<Ads> mAdList = new ArrayList<>();
+    private ArrayList<Ads> mAdList;
     private RecyclerView recyclerView;
     private Custom_adapter mAdapter;
 
@@ -44,184 +47,73 @@ public class buy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy);
 
+
+        recyclerView = (RecyclerView)findViewById(R.id.myRecycler);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Ad");
         mDatabase.keepSynced(true);
         mAdapter = new Custom_adapter(mAdList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(mAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-    }
+        mAdList = new ArrayList<Ads>();
 
-   /* @Override
+        mDatabase.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                                mAdList = new ArrayList<>();
+                                                mAdapter = new Custom_adapter(mAdList);
+                                                recyclerView.setAdapter(mAdapter);
+                                                // StringBuffer stringbuffer = new StringBuffer();
+                                                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                                                    Ads ads = new Ads();
+                                                    ads.setCarName(dataSnapshot1.child("carName").getValue().toString());
+                                                    ads.setCarType(dataSnapshot1.child("carType").getValue().toString());
+                                                    ads.setEngineCapacity(dataSnapshot1.child("engineCapacity").getValue().toString());
+                                                    ads.setModel(dataSnapshot1.child("model").getValue().toString());
+                                                    ads.setColor(dataSnapshot1.child("color").getValue().toString());
+                                                    ads.setSeatCapacity(dataSnapshot1.child("seatCapacity").getValue().toString());
+                                                    ads.setPrice(dataSnapshot1.child("price").getValue().toString());
+                                                    ads.setPhone(dataSnapshot1.child("phone").getValue().toString());
+                                                    ads.setImageurl(dataSnapshot1.child("imageurl").getValue().toString());
+
+
+                                                    //Picasso.get().load(ads.getImageurl()).into();
+
+                                                 // Ads ads = dataSnapshot1.getValue(Ads.class);
+                                                   /* Ads ads = new Ads();
+                                                    String carName = Ads.getCarName();
+                                                    String carType = Ads.getCarType();
+                                                    String engineCapacity = Ads.getEngineCapacity();
+                                                    String model = Ads.getModel();
+                                                    String color = Ads.getColor();
+                                                    String seatCapacity = Ads.getSeatCapacity();
+                                                    String price = Ads.getPrice();
+                                                    Ads.setCarName(carName);
+                                                    Ads.setCarType(carType);
+                                                    Ads.setEngineCapacity(engineCapacity);
+                                                    Ads.setModel(model);
+                                                    Ads.setColor(color);
+                                                    Ads.setSeatCapacity(seatCapacity);
+                                                    Ads.setPrice(price);*/
+                                                    mAdList.add(ads);
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                    Toast.makeText(buy.this,"something wrong",Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        });
+
+
+                }
+
+    @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<Ads,AdsViewHolder> firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<Ads,AdsViewHolder>
-                (Ads.class,R.layout.custom_layout,AdsViewHolder.class,mDatabase){
-            @Override
-            protected void populateViewHolder(AdsViewHolder viewHolder, Ads model, int position) {
-                viewHolder.setCarName(model.getCarName());
-                viewHolder.setCarType(model.getCarType());
-                viewHolder.setColor(model.getColor());
-                viewHolder.setEngineCapacity(model.getEngineCapacity());
-                viewHolder.setModel(model.getModel());
-                viewHolder.setPrice(model.getPrice());
-                viewHolder.setSeatCapacity(model.getSeatCapacity());
-            }
-
-        };
-        mAdList.setAdapter(firebaseRecyclerAdapter);
     }
-
-    public static class AdsViewHolder extends RecyclerView.ViewHolder {
-        View mView;
-        public AdsViewHolder(View itemView){
-            super(itemView);
-            mView = itemView;
-        }
-        public void setCarName(String carName){
-            TextView mCarName =(TextView)mView.findViewById(R.id.carNameshow);
-            mCarName.setText(carName);
-        }
-
-        void setCarType(String carType){
-            TextView mCarType =(TextView)mView.findViewById(R.id.cartypeshow);
-            mCarType.setText(carType);
-        }
-
-        public void setColor(String color){
-            TextView mColor = (TextView)mView.findViewById(R.id.colorshow);
-            mColor.setText(color);
-        }
-        public void setEngineCapacity(String engineCapacity){
-            TextView mEngineCapacity = (TextView)mView.findViewById(R.id.engineCapacityshow);
-            mEngineCapacity.setText(engineCapacity);
-        }
-        public void setModel(String model){
-            TextView mModel = (TextView)mView.findViewById(R.id.modelshow);
-            mModel.setText(model);
-        }
-        public void setSeatCapacity(String seatCapacity)
-        {
-            TextView mSeatCapacity = (TextView)mView.findViewById(R.id.seatCapacityshow);
-            mSeatCapacity.setText(seatCapacity);
-        }
-        public void setPrice(String price)
-        {
-            TextView mPrice = (TextView)mView.findViewById(R.id.priceshow );
-            mPrice.setText(price);
-        }
-    }
-*/
-    //mDatabase.addChildEventListener(new ChildEventListener() {
-
-    //@Override
-
-    //public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-    //try{
-
-    //String carType = dataSnapshot.getValue(String.class);
-
-    //String carName = dataSnapshot.getValue(String.class);
-
-    //String engineCapacity = dataSnapshot.getValue(String.class);
-
-    //String model = dataSnapshot.getValue(String.class);
-
-    //String color = dataSnapshot.getValue(String.class);
-
-    //String seatCapacity = dataSnapshot.getValue(String.class);
-
-    //String price = dataSnapshot.getValue(String.class);
-
-    //
-
-    //
-
-    //mAds.add(carType);
-
-    //mAds.add(carName);
-
-    //mAds.add(engineCapacity);
-
-    //mAds.add(model);
-
-    //mAds.add(color);
-
-    //mAds.add(seatCapacity);
-
-    //mAds.add(price);
-
-    //arrayAdapter.notifyDataSetChanged();
-
-    //
-
-    //String key = dataSnapshot.getKey();
-
-    //mKeys.add(key);
-
-    //} catch (Exception e) {
-
-    //Toast.makeText(buy.this, "unsuccessful", Toast.LENGTH_LONG).show();
-
-    //}
-
-    //}
-
-    //
-
-    //
-
-    //
-
-    //@Override
-
-    //public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-    //// String value = dataSnapshot.getValue(String.class);
-
-    //
-
-    //// arrayAdapter.notifyDataSetChanged();
-
-    //
-
-    //}
-
-    //
-
-    //@Override
-
-    //public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-    //
-
-    //}
-
-    //
-
-    //@Override
-
-    //public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-    //
-
-    //}
-
-    //
-
-    //@Override
-
-    //public void onCancelled(@NonNull DatabaseError databaseError) {
-
-    //
-
-    //}
-
-    //});
-
-    //}
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
@@ -234,5 +126,8 @@ public class buy extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 }
+
+
+
+

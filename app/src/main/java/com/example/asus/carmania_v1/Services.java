@@ -44,17 +44,10 @@ public class Services extends AppCompatActivity {
         startActivity(intent2);
         finish();
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if ((keyCode == KeyEvent.KEYCODE_BACK))
-        {
-            Intent intent = new Intent(Services.this,initWindow.class);
-            startActivity(intent);
-            finish();
-        }
-        return super.onKeyDown(keyCode, event);
+    public void Repair(View view) {
+        Intent intent1 = new Intent(Services.this,Repair.class);
+        startActivity(intent1);
+        finish();
     }
 
     public void GetInfoUser(View view) {

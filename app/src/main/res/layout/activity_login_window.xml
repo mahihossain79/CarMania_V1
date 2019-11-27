@@ -36,6 +36,7 @@
         android:hint="Password" />
 
 
+
     <Button
         android:id="@+id/loginAcc"
         android:layout_width="match_parent"
@@ -47,5 +48,16 @@
         android:textColor="#ffff"
         android:textSize="20dp"
         android:onClick="login"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="290dp"
+        android:text="Forgot Password?"
+        android:textColor="#1a237e"
+        android:textSize="15dp" />
 
 </RelativeLayout>

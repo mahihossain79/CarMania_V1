@@ -78,7 +78,8 @@ public class rent extends AppCompatActivity {
                             finish();
                         }
                         else {
-                            Toast.makeText(rent.this,"Your Ad is not Posted",Toast.LENGTH_LONG).show();
+                            Toast.makeText(rent.this,"Your Rent request can't be processed.\" +\n" +
+                                    "                                    \"Try again later",Toast.LENGTH_LONG).show();
                         }
                     }
                 });

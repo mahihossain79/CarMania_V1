@@ -31,7 +31,9 @@
         <activity android:name=".selfDriven" />
         <activity android:name=".RentServices" />
         <activity android:name=".GiveRent" />
-        <activity android:name=".Self_Driven_Rent"></activity>
+        <activity android:name=".Self_Driven_Rent" />
+        <activity android:name=".Repair" />
+        <activity android:name=".shop_list"></activity>
     </application>
 
 </manifest>

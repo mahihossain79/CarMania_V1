@@ -17,7 +17,7 @@ public class SpashScreen extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(2000);
-                    Intent intent = new Intent(getApplicationContext(), initWindow.class);
+                    Intent intent = new Intent(getApplicationContext(), Services.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {

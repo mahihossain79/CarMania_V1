@@ -19,6 +19,19 @@
         />
 
     <Button
+    android:id="@+id/withDriver"
+    android:layout_width="match_parent"
+    android:layout_height="126dp"
+    android:background="@color/black_overlay"
+    android:text="Rent A Car"
+    android:textSize="30dp"
+    android:textColor="#ffff"
+    app:layout_constraintTop_toBottomOf="@+id/text"
+    android:layout_marginTop="30dp"
+    android:onClick="RentACar"
+    />
+
+    <Button
         android:id="@+id/giveRent"
         android:layout_width="match_parent"
         android:layout_height="126dp"
@@ -26,7 +39,7 @@
         android:text="Give your car on Rent"
         android:textSize="30dp"
         android:textColor="#ffff"
-        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:layout_constraintTop_toBottomOf="@+id/withDriver"
         android:layout_marginTop="30dp"
         android:onClick="GiveRent"
         />
@@ -44,17 +57,5 @@
         android:onClick="SelfDriven"
         />
 
-    <Button
-        android:id="@+id/withDriver"
-        android:layout_width="match_parent"
-        android:layout_height="126dp"
-        android:background="@color/black_overlay"
-        android:text="Rent a car
- (with Driver)"
-        android:textSize="30dp"
-        android:textColor="#ffff"
-        app:layout_constraintTop_toBottomOf="@+id/selfDriven"
-        android:layout_marginTop="30dp"
-        android:onClick="RentACar"
-        />
+
 </android.support.constraint.ConstraintLayout>

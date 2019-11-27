@@ -31,6 +31,7 @@ public class selfDriven extends AppCompatActivity {
     Button mselfSubmit,mSelectNidImage,mSelectDLImage;
     ImageView mNidImage,mDLImage;
     private int REQUEST_CODE = 1;
+    static int key = 0;
 
 
     @Override
@@ -81,12 +82,13 @@ public class selfDriven extends AppCompatActivity {
 
 
 
-                mDatabase.child("User Info").push().setValue(datamap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mDatabase.child("User Info").child(Integer.toString(key)).setValue(datamap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
+                            key++;
                             Toast.makeText(selfDriven.this,"Your information is saved",Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(selfDriven.this,Services.class);
+                            Intent i = new Intent(selfDriven.this,Self_Driven_Rent.class);
                             startActivity(i);
                             finish();
                         }
@@ -167,10 +169,5 @@ public class selfDriven extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public void Submit(View view) {
-        Intent intent = new Intent(selfDriven.this,Self_Driven_Rent.class);
-        startActivity(intent);
-        finish();
-    }
 
 }

@@ -32,7 +32,6 @@ public class createAccount extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference userRef;
 
-    databaseHealper dbHealper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +83,7 @@ public class createAccount extends AppCompatActivity {
         String Phone = phoneNumber.getText().toString().trim();
 
         if(!Password.equals(ConfirmPassword)){
-            password.setError("Password dont match!!");
+            password.setError("Password don't match!!");
             flag=1;
         }
         else if(FirstName.isEmpty()){
@@ -149,11 +148,11 @@ public class createAccount extends AppCompatActivity {
                             SavetoFireBaseDB(user, Key);
                             Intent intent = new Intent(getApplicationContext(), Services.class);
                             startActivity(intent);
-                            Toast.makeText(getApplicationContext(), "LogIn Successful.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Log In Successful.", Toast.LENGTH_LONG).show();
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
-
+                            Toast.makeText(getApplicationContext(), "Log In Error.", Toast.LENGTH_LONG).show();
                         }
 
                         // ...

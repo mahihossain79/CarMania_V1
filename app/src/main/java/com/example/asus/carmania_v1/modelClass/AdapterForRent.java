@@ -1,7 +1,6 @@
 package com.example.asus.carmania_v1.modelClass;
 
 import android.content.Context;
-import android.graphics.Movie;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,50 +12,44 @@ import com.example.asus.carmania_v1.Ads;
 import com.example.asus.carmania_v1.R;
 import com.squareup.picasso.Picasso;
 
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.Adler32;
 
-public class Custom_adapter extends RecyclerView.Adapter<Custom_adapter.MyViewHolder> {
+public class AdapterForRent  extends RecyclerView.Adapter<Custom_adapter.MyViewHolder> {
     Context context;
-    private ArrayList<Ads> adList;
+    private ArrayList<RentAds> rentAdList;
 
-    public Custom_adapter(ArrayList<Ads> ads) {
+    public AdapterForRent(ArrayList<RentAds> rentAds) {
 
-        adList = ads;
+        rentAdList = rentAds;
     }
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mCarName,mCarType,mEngineCapacity,mModel,mColor,mSeatCapacity,mPrice, mPhone;
+        public TextView mCarName,mCarType,mSeatCapacity,mlocation, mPhone;
         public ImageView mImage;
         public MyViewHolder(View view) {
             super(view);
-            mCarName =(TextView)view.findViewById(R.id.carNameshow);
-            mCarType =(TextView)view.findViewById(R.id.cartypeshow);
-            mEngineCapacity =(TextView)view.findViewById(R.id.engineCapacityshow);
-            mModel =(TextView)view.findViewById(R.id.modelshow);
-            mColor =(TextView)view.findViewById(R.id.colorshow);
-            mSeatCapacity =(TextView)view.findViewById(R.id.seatCapacityshow);
-            mPrice= (TextView)view.findViewById(R.id.priceshow);
-            mPhone = (TextView)view.findViewById(R.id.phoneshow);
-            mImage= (ImageView)view.findViewById(R.id.post_image);
+            mCarName =(TextView)view.findViewById(R.id.carNameRent);
+            mCarType =(TextView)view.findViewById(R.id.cartypeRent);
+            mSeatCapacity =(TextView)view.findViewById(R.id.seatCapacityRent);
+            mlocation= (TextView)view.findViewById(R.id.locationRent);
+            mPhone = (TextView)view.findViewById(R.id.phoneRent);
+            mImage= (ImageView)view.findViewById(R.id.post_image_rent);
 
         }
     }
 
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Custom_adapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.custom_layout, parent, false);
+                .inflate(R.layout.cardview_for_rental, parent, false);
 
-        return new MyViewHolder(itemView);
+        return MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(Custom_adapter.MyViewHolder holder, int position) {
         Ads Ad = adList.get(position);
         holder.mCarName.setText(Ad.getCarName());
         holder.mCarType.setText("Car Type: "+Ad.getCarType());
@@ -74,3 +67,4 @@ public class Custom_adapter extends RecyclerView.Adapter<Custom_adapter.MyViewHo
         return adList.size();
     }
 }
+

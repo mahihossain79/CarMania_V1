@@ -10,13 +10,15 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter Your Car Details"
         android:textSize="35dp"
-        android:textColor="#1a237e"
+        android:textColor="#ffff"
         android:gravity="center"
+        android:background="@color/colorPrimary"
         android:layout_margin="10dp"
+        android:textStyle="bold"
         />
 
     <Spinner
@@ -89,6 +91,16 @@
         android:inputType="number"
         />
 
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="560dp"
+        android:hint="Phone"
+        android:inputType="number"/>
+
     <ImageView
         android:id="@+id/itemImage"
         android:layout_width="100dp"
@@ -105,9 +117,7 @@
         android:text="Select Image"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="450dp"
-
         android:textSize="19dp"
-        android:textStyle="bold"
        />
 
     <Button

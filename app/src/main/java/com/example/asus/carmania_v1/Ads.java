@@ -8,8 +8,13 @@ public class Ads {
     private String model;
     private String price;
     private String seatCapacity;
+    private String phone;
+    private String imageurl;
+    private boolean permission;
 
-    public Ads(String carName, String carType, String color, String engineCapacity, String model, String price, String seatCapacity) {
+
+
+    public Ads(String carName, String carType, String color, String engineCapacity, String model, String price, String seatCapacity, String phone, String imageurl) {
         this.carName = carName;
         this.carType = carType;
         this.color = color;
@@ -17,6 +22,17 @@ public class Ads {
         this.model = model;
         this.price = price;
         this.seatCapacity = seatCapacity;
+        this.phone = phone;
+        this.imageurl = imageurl;
+    }
+
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public String getCarName() {
@@ -73,6 +89,22 @@ public class Ads {
 
     public void setSeatCapacity(String seatCapacity) {
         this.seatCapacity = seatCapacity;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public boolean isPermission() {
+        return permission;
+    }
+
+    public void setPermission(boolean permission) {
+        this.permission = permission;
     }
 
     public Ads() {

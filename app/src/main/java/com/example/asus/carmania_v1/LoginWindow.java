@@ -108,11 +108,6 @@ public class LoginWindow extends AppCompatActivity {
 
                     FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
 
-
-
-
-
-
                     Intent intent = new Intent(LoginWindow.this,Services.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "LogIn Successful.", Toast.LENGTH_LONG).show();

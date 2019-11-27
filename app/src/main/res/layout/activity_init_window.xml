@@ -19,54 +19,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:text="  Welcome To CarMania"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#1a237e"
         android:textSize="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Already have an account?"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20dp" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:onClick="Login"
+        android:background="#1a237e"
         android:text="Login"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textSize="20dp"
+        android:textColor="#fff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Don't have an account?"
-        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="20dp"
+        android:textColor="#1a237e"
         android:textSize="20dp" />
 
     <Button
         android:id="@+id/createAccount"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:onClick="newAccount"
+        android:background="#1a237e"
         android:text="Create a New Account"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/aboutUs"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+
+        android:layout_marginTop="30dp"
+        android:background="#1a237e"
         android:onClick="aboutUs"
         android:text="About Us"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="#ffff" />
 
 </LinearLayout>
